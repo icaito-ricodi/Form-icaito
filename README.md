@@ -34,3 +34,4 @@ Este proyecto es de uso libre para fines educativos y personales.
 ## ✍️ Autor
 
 Desarrollado por [Ricardo Diosdado icaito-ricodi]
+Canal youtube [https://www.youtube.com/@icaito-ricodi-resica]
