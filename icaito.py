@@ -9,7 +9,7 @@ app = Flask(__name__)
 ARCHIVO_DATOS = 'datos.csv'
 
 # Clave para acceder a las rutas protegidas
-CLAVE_SEGURA = "54321"  # cámbiala por seguridad
+CLAVE_SEGURA = "icaito 54321"  # cámbiala por seguridad
 
 @app.route('/')
 def index():
