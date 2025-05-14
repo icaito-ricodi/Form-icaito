@@ -19,25 +19,33 @@ def index():
 def enviar():
     nombre = request.form['nombre']
     correo = request.form['correo']
+    telefono = request.form.get('telefono', '')
+    asunto = request.form.get('asunto', '')
+    preferencia = request.form.get('preferencia', '')
+    novedades = 'Sí' if request.form.get('novedades') else 'No'
     mensaje = request.form['mensaje']
 
-    guardar_datos_csv(nombre, correo, mensaje)
+    guardar_datos_csv(nombre, correo, telefono, asunto, preferencia, novedades, mensaje)
 
     return f"""
     <h2>Datos Recibidos</h2>
     <p><strong>Nombre:</strong> {nombre}</p>
     <p><strong>Correo:</strong> {correo}</p>
+    <p><strong>Teléfono:</strong> {telefono}</p>
+    <p><strong>Asunto:</strong> {asunto}</p>
+    <p><strong>Preferencia:</strong> {preferencia}</p>
+    <p><strong>Recibe novedades:</strong> {novedades}</p>
     <p><strong>Mensaje:</strong> {mensaje}</p>
     <a href="/">Volver al formulario</a>
     """
 
-def guardar_datos_csv(nombre, correo, mensaje):
+def guardar_datos_csv(nombre, correo, telefono, asunto, preferencia, novedades, mensaje):
     nuevo_archivo = not os.path.exists(ARCHIVO_DATOS)
     with open(ARCHIVO_DATOS, mode='a', newline='', encoding='utf-8') as archivo:
         escritor = csv.writer(archivo)
         if nuevo_archivo:
-            escritor.writerow(['Nombre', 'Correo', 'Mensaje'])
-        escritor.writerow([nombre, correo, mensaje])
+            escritor.writerow(['Nombre', 'Correo', 'Teléfono', 'Asunto', 'Preferencia', 'Novedades', 'Mensaje'])
+        escritor.writerow([nombre, correo, telefono, asunto, preferencia, novedades, mensaje])
 
 @app.route('/ver-datos')
 def ver_datos():
@@ -69,6 +77,5 @@ def descargar_datos():
     return send_file(ARCHIVO_DATOS, as_attachment=True)
 
 if __name__ == '__main__':
-    app.run(debug=True)
-
+    app.run(host='0.0.0.0', port=5000)
 
