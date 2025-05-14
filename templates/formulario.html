@@ -3,23 +3,58 @@
 <head>
   <meta charset="UTF-8">
   <title>Formulario icaito</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
 </head>
-<body>
-  <h2>Formulario de Contacto</h2>
-  <form action="/enviar" method="POST">
-    <label for="nombre">Nombre:</label><br>
-    <input type="text" name="nombre" required><br><br>
+<body class="bg-light">
+  <div class="container py-5">
+    <h2 class="mb-4">Formulario de Contacto</h2>
+    <form action="/enviar" method="POST" class="bg-white p-4 rounded shadow-sm">
 
-    <label for="correo">Correo:</label><br>
-    <input type="email" name="correo" required><br><br>
+      <div class="mb-3">
+        <label for="nombre" class="form-label">Nombre:</label>
+        <input type="text" name="nombre" id="nombre" class="form-control" required>
+      </div>
 
-    <label for="mensaje">Mensaje:</label><br>
-    <textarea name="mensaje" rows="5" required></textarea><br><br>
+      <div class="mb-3">
+        <label for="correo" class="form-label">Correo:</label>
+        <input type="email" name="correo" id="correo" class="form-control" required>
+      </div>
 
-    <button type="submit">Enviar</button>
-  </form>
+      <div class="mb-3">
+        <label for="telefono" class="form-label">Teléfono:</label>
+        <input type="tel" name="telefono" id="telefono" class="form-control">
+      </div>
+
+      <div class="mb-3">
+        <label for="asunto" class="form-label">Asunto:</label>
+        <input type="text" name="asunto" id="asunto" class="form-control">
+      </div>
+
+      <div class="mb-3">
+        <label class="form-label">Preferencia de contacto:</label><br>
+        <div class="form-check form-check-inline">
+          <input class="form-check-input" type="radio" name="preferencia" id="pref_email" value="Email" checked>
+          <label class="form-check-label" for="pref_email">Email</label>
+        </div>
+        <div class="form-check form-check-inline">
+          <input class="form-check-input" type="radio" name="preferencia" id="pref_tel" value="Teléfono">
+          <label class="form-check-label" for="pref_tel">Teléfono</label>
+        </div>
+      </div>
+
+      <div class="mb-3 form-check">
+        <input type="checkbox" class="form-check-input" id="novedades" name="novedades">
+        <label class="form-check-label" for="novedades">Deseo recibir novedades</label>
+      </div>
+
+      <div class="mb-3">
+        <label for="mensaje" class="form-label">Mensaje:</label>
+        <textarea name="mensaje" id="mensaje" rows="5" class="form-control" required></textarea>
+      </div>
+
+      <button type="submit" class="btn btn-primary">Enviar</button>
+    </form>
+  </div>
 </body>
 </html>
-
-
 
