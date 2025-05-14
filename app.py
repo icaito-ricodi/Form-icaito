@@ -9,11 +9,11 @@ app = Flask(__name__)
 ARCHIVO_DATOS = 'datos.csv'
 
 # Clave para acceder a las rutas protegidas
-CLAVE_SEGURA = "icaito 54321"  # cámbiala por seguridad
+CLAVE_SEGURA = "icaito_54321"  # cámbiala por seguridad
 
 @app.route('/')
 def index():
-    return render_template('icaito.html')
+    return render_template('formulario.html')
 
 @app.route('/enviar', methods=['POST'])
 def enviar():
