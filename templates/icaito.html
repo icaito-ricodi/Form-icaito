@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>Form. de Contacto icaito</title>
+</head>
+<body>
+  <h2>Formulario de Contacto</h2>
+  <form action="/enviar" method="POST">
+    <label for="nombre">Nombre:</label><br>
+    <input type="text" name="nombre" required><br><br>
+
+    <label for="correo">Correo:</label><br>
+    <input type="email" name="correo" required><br><br>
+
+    <label for="mensaje">Mensaje:</label><br>
+    <textarea name="mensaje" rows="5" required></textarea><br><br>
+
+    <button type="submit">Enviar</button>
+  </form>
+</body>
+</html>
