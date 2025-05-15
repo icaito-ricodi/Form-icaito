@@ -13,7 +13,7 @@ ARCHIVO_DATOS = 'datos.csv'
 CLAVE_SEGURA = "icaito_54321"  # cámbiala por seguridad
 
 # Token y chat_id de Telegram (tus datos)
-TOKEN_TELEGRAM = '7722250896:AAEf90ynAy-eCVaberP50cDLvQ4qhNHi1DQ'
+TOKEN_TELEGRAM = '7838224172:AAECTCJXQkoBav7EruQs6ZNAvvlXFrJX36k'
 CHAT_ID_TELEGRAM = '1528882748'
 
 @app.route('/')
