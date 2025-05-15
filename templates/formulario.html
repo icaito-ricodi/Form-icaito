@@ -2,11 +2,17 @@
 <html lang="es">
 <head>
   <meta charset="UTF-8" />
+  <meta name="description" content="Formulario de contacto para Icaito" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <meta name="keywords" content="Formulario, Contacto, Icaito" />
+  <meta name="author" content="Icaito" />
   <title>Formulario Icaito</title>
+  <link rel="shortcut icon" href="../favicon.ico" type="image/x-icon">
   <style>
     body {
       font-family: Arial, sans-serif;
-      background: #f9f9f9;
+      background: #b1acac;
       max-width: 600px;
       margin: 40px auto;
       padding: 20px;
@@ -41,7 +47,7 @@
     }
     button {
       margin-top: 20px;
-      background-color: #007BFF;
+      background-color: #0056b3;
       color: white;
       border: none;
       padding: 12px;
@@ -52,7 +58,10 @@
       transition: background-color 0.3s ease;
     }
     button:hover {
-      background-color: #0056b3;
+      background-color: #007BFF;
+      color: green;
+      font-weight: bold;
+      border: 1px solid #f70909;
     }
   </style>
 </head>
@@ -60,13 +69,13 @@
   <h2>Formulario de Contacto</h2>
   <form action="/enviar" method="POST">
     <label for="nombre">Nombre:</label>
-    <input type="text" name="nombre" required />
+    <input type="text" name="nombre" placeholder="Ingrese su nombre completo" required />
 
     <label for="correo">Correo:</label>
-    <input type="email" name="correo" required />
+    <input type="email" name="correo" placeholder="Ingrese su correo personal" required />
 
     <label for="telefono">Teléfono:</label>
-    <input type="text" name="telefono" />
+    <input type="text" name="telefono" placeholder="Ingrese su numero de celular" />
 
     <label for="asunto">Asunto:</label>
     <input type="text" name="asunto" />
@@ -81,7 +90,7 @@
 
     <label>
       <input type="checkbox" name="novedades" />
-      Deseo recibir novedades y promociones
+      Desea recibir notificaciones...
     </label>
 
     <label for="mensaje">Mensaje:</label>
