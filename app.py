@@ -2,7 +2,6 @@ from flask import Flask, request, render_template, send_file, abort
 import csv
 import os
 import pandas as pd
-import requests
 
 app = Flask(__name__)
 
@@ -11,10 +10,6 @@ ARCHIVO_DATOS = 'datos.csv'
 
 # Clave para acceder a las rutas protegidas
 CLAVE_SEGURA = "icaito_54321"  # cámbiala por seguridad
-
-# Token y chat_id de Telegram (tus datos)
-TOKEN_TELEGRAM = '7722250896:AAEf90ynAy-eCVaberP50cDLvQ4qhNHi1DQ'
-CHAT_ID_TELEGRAM = '1528882748'
 
 @app.route('/')
 def index():
@@ -31,7 +26,6 @@ def enviar():
     mensaje = request.form['mensaje']
 
     guardar_datos_csv(nombre, correo, telefono, asunto, preferencia, novedades, mensaje)
-    enviar_telegram(nombre, correo, telefono, asunto, preferencia, novedades, mensaje)
 
     return f"""
     <h2>Datos Recibidos</h2>
@@ -52,25 +46,6 @@ def guardar_datos_csv(nombre, correo, telefono, asunto, preferencia, novedades, 
         if nuevo_archivo:
             escritor.writerow(['Nombre', 'Correo', 'Teléfono', 'Asunto', 'Preferencia', 'Novedades', 'Mensaje'])
         escritor.writerow([nombre, correo, telefono, asunto, preferencia, novedades, mensaje])
-
-def enviar_telegram(nombre, correo, telefono, asunto, preferencia, novedades, mensaje):
-    texto = f"""
-📩 Nuevo formulario recibido:
-
-👤 Nombre: {nombre}
-📧 Correo: {correo}
-📞 Teléfono: {telefono}
-📝 Asunto: {asunto}
-📋 Preferencia: {preferencia}
-🔔 Novedades: {novedades}
-💬 Mensaje: {mensaje}
-"""
-    url = f"https://api.telegram.org/bot{TOKEN_TELEGRAM}/sendMessage"
-    payload = {
-        'chat_id': CHAT_ID_TELEGRAM,
-        'text': texto
-    }
-    requests.post(url, data=payload)
 
 @app.route('/ver-datos')
 def ver_datos():
@@ -103,4 +78,3 @@ def descargar_datos():
 
 if __name__ == '__main__':
     app.run(debug=True)
-
